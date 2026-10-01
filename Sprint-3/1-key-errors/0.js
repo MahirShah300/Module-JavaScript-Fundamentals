@@ -17,6 +17,6 @@
 // =============> write your new code here
 
 function capitalise(str) {
-  str = `${str[0].toUpperCase()}${str.slice(1)}`;
-  return str;
+  const capitaliseStr = `${str[0].toUpperCase()}${str.slice(1)}`;
+  return capitaliseStr;
 }
