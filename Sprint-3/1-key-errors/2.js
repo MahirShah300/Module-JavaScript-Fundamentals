@@ -21,6 +21,6 @@
 
 // =============> write your new code here
 
-function square(num = 3) {
+function square(num) {
   return num * num;
 }
