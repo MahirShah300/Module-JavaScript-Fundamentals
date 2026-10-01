@@ -10,7 +10,10 @@ function pad(num) {
     return stringNum;
   }
 }
-function formatAs12HourClock(time) {
+function formatAs12HourClock(time = "") {
+  if (typeof time != "string") {
+    return "Not a valid format"; //check if time is a string
+  }
   if (
     (time.indexOf(":") === -1 && time.indexOf(".") === -1) ||
     (time.indexOf(":") !== -1 && time.indexOf(".") !== -1)
@@ -53,7 +56,9 @@ function formatAs12HourClock(time) {
     hours >= 24 ||
     hours < 0 ||
     minutes >= 60 ||
-    minutes < 0
+    minutes < 0 ||
+    hours % 1 != 0 ||
+    minutes % 1 != 0
   ) {
     return "Not a valid time";
   } //check if numbers are valid
