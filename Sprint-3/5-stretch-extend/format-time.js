@@ -14,6 +14,11 @@ function formatAs12HourClock(time = "") {
   if (typeof time != "string") {
     return "Not a valid format"; //check if time is a string
   }
+
+  if (/\s/.test(time)) {
+    return "Not a valid time"; //check for whitespace in string
+  }
+
   if (
     (time.indexOf(":") === -1 && time.indexOf(".") === -1) ||
     (time.indexOf(":") !== -1 && time.indexOf(".") !== -1)
@@ -276,4 +281,25 @@ const targetOutput29 = "Not a valid time";
 console.assert(
   currentOutput29 === targetOutput29,
   `current output: ${currentOutput29}, target output: ${targetOutput29}`,
+);
+
+const currentOutput30 = formatAs12HourClock(" :30");
+const targetOutput30 = "Not a valid time";
+console.assert(
+  currentOutput30 === targetOutput30,
+  `current output: ${currentOutput30}, target output: ${targetOutput30}`,
+);
+
+const currentOutput31 = formatAs12HourClock("12:30  ");
+const targetOutput31 = "Not a valid time";
+console.assert(
+  currentOutput31 === targetOutput31,
+  `current output: ${currentOutput31}, target output: ${targetOutput31}`,
+);
+
+const currentOutput32 = formatAs12HourClock("12:30\n");
+const targetOutput32 = "Not a valid time";
+console.assert(
+  currentOutput32 === targetOutput32,
+  `current output: ${currentOutput32}, target output: ${targetOutput32}`,
 );
