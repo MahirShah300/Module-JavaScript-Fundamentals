@@ -21,7 +21,7 @@ function toPounds(penceString) {
     .substring(paddedPenceNumberString.length - 2)
     .padEnd(2, "0");
 
-  console.log(`£${pounds}.${pence}`);
+  return(`£${pounds}.${pence}`);
 }
 
 toPounds("10p");
